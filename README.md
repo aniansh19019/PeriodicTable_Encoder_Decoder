@@ -13,6 +13,8 @@ This was just a fun exercise to write a program for something we used to do by p
 
 ## Installation
 
+You need python3 and preferably virtualenv to run the code.
+
 ```
 
 git clone https://github.com/aniansh19019/PeriodicTable_Encoder_Decoder
