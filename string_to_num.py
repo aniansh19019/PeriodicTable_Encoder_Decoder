@@ -2,7 +2,7 @@ from mendeleev import element
 
 class EncodeTreeNode:
     def __init__(self, content, operand):
-        self.content=content
+        self.content = content
         self.single = None
         self.double = None
         self.operand = operand
@@ -13,20 +13,22 @@ class EncodeTree:
         # assert type(number) == String, "Invalid type for number"
 
         self.head = EncodeTreeNode("", number) # empty node as head
-        self.number=number
+        self.number = number
         self.valid_outcomes = []
 
     def get_number(self, element_symbol):
+        print(element_symbol)
         try:
-            return str(element(element_symbol.capitalize()).number)
+            return str(element(element_symbol.capitalize()).atomic_number)
         except:
             return ""
-
         return ""
 
 
     def routine(self, node):
-        # print(node.content)
+        
+        print(node.content)
+        
         if node.operand == "": # empty operand, chain finished
             self.valid_outcomes.append(node.content) # add to the list of valid outcomes
             return
@@ -34,10 +36,9 @@ class EncodeTree:
 
         if len(node.operand) >= 1: # assign single
             addend = self.get_number(node.operand[0])
-            if addend == "": # invlaid element, interrupt chain
-                return
-            node.single = EncodeTreeNode(node.content + addend, node.operand[1:])
-            self.routine(node.single)
+            if addend != "": # invlaid element, try next
+                node.single = EncodeTreeNode(node.content + addend, node.operand[1:])
+                self.routine(node.single)
 
         if len(node.operand) >=2: #assign double
             addend = self.get_number(node.operand[0:2])
@@ -53,8 +54,8 @@ class EncodeTree:
 
 
 print("Enter string to encode:")
-num = input()
-tree = EncodeTree(num)
+name = input()
+tree = EncodeTree(name)
 tree.populate()
 print("Possible Encodings:")
 print(tree.valid_outcomes)
