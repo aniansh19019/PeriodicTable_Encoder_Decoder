@@ -1,3 +1,4 @@
+# code to convert a string(if possible) to a sequence of numbers where each number is an atomic number of an element represented by the string tokens extracted from the original string in order
 from mendeleev import element
 
 class EncodeTreeNode:
@@ -10,25 +11,18 @@ class EncodeTreeNode:
 class EncodeTree:
 
     def __init__(self, number):
-        # assert type(number) == String, "Invalid type for number"
-
         self.head = EncodeTreeNode("", number) # empty node as head
-        self.number = number
         self.valid_outcomes = []
 
     def get_number(self, element_symbol):
-        print(element_symbol)
         try:
-            return str(element(element_symbol.capitalize()).atomic_number)
+            return str(element(element_symbol.capitalize()).atomic_number)+" "
         except:
             return ""
         return ""
 
 
     def routine(self, node):
-        
-        print(node.content)
-        
         if node.operand == "": # empty operand, chain finished
             self.valid_outcomes.append(node.content) # add to the list of valid outcomes
             return

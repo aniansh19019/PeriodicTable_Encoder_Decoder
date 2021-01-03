@@ -1,3 +1,4 @@
+# code to convert a number(if possible) to a string made up of the symbols of the elements whose atomic numbers are extracted, in order, from the original number entered
 from mendeleev import element
 
 class DecodeTreeNode:
@@ -11,10 +12,7 @@ class DecodeTreeNode:
 class DecodeTree:
 
     def __init__(self, number):
-        # assert type(number) == String, "Invalid type for number"
-
         self.head = DecodeTreeNode("", number) # empty node as head
-        self.number=number
         self.valid_outcomes = []
 
     def get_symbol(self, element_number):
