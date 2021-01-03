@@ -7,7 +7,7 @@ This is a set of two programs that use the mendeleev python library (https://git
 
 2. **num_to_string.py** does the opposite of the first program and encodes a number to a string by converting the atomic numbers extracted from the number to the chemical symbols.
 
-**For example:** if the user enters "1234", the program outputs ['HHeLiBe', 'HHeSe', 'HVBe', 'MgLiBe', 'MgSe']. These are all the possible combinations of elements possible whose atmoic numbers taken in order will give back the original number.
+**For example:** if the user enters "1234", the program outputs ['HHeLiBe', 'HHeSe', 'HVBe', 'MgLiBe', 'MgSe']. These are all the possible combinations of elements whose atmoic numbers, taken in order, will give back the original number.
 
 This was just a fun exercise to write a program for something we used to do by pen and paper in our chemistry class in high school.
 
