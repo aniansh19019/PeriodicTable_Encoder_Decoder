@@ -56,15 +56,6 @@ class DecodeTree:
     def populate(self):
         self.routine(self.head)
 
-def number_to_string_routine(number):
-    pass
-
-def decode(number):
-    pass
-
-def encode(text):
-    pass
-
 
 print("Enter number to decode/encode:")
 num = input()
