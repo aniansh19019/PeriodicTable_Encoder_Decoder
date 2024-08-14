@@ -42,9 +42,35 @@ class EncodeTree:
             self.routine(node.double)
 
         return
-
+    def get_numeber_case_sensitive(self,operand):
+        num_str =""
+        try:
+            while operand != "":
+                if operand[0].islower():
+                    return None
+                next_symbol = operand[0]
+                tocut = 1
+                if len(operand) >= 2 and operand[1].islower():
+                    next_symbol = operand[0:2]
+                    tocut = 2
+                operand = operand[tocut:]
+                next_num = self.get_number(next_symbol)
+                if next_num == "":
+                    return None
+                num_str += next_num
+        except:
+            return None
+        return num_str
+    
     def populate(self):
+        case_sensitive_value = self.get_numeber_case_sensitive(self.head.operand)
+        if case_sensitive_value is not None:
+            print("case senstive number: ",case_sensitive_value)
+            self.valid_outcomes.append(case_sensitive_value)
+        else:
+            print("no case sensitive number found")
         self.routine(self.head)
+        self.valid_outcomes = list(set(self.valid_outcomes))
 
 
 print("Enter string to encode:")
